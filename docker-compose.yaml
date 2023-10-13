@@ -48,3 +48,19 @@ services:
     expose:
       - 9091
     restart: unless-stopped
+
+  flexget:
+    image: wiserain/flexget:3.5
+    volumes:
+      - ./flexget:/config
+      - ./flexget/custom-cont-init.d:/custom-cont-init.d
+      - ${STORAGE}/torrents:/downloads
+      - ${MEDIA}:/storage
+    ports:
+      - 5050:5050
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TORRENT_PLUGIN=transmission
+      - FG_WEBUI_PASSWD=p3l4d0_N3RD # you can change by your own
+    restart: unless-stopped
