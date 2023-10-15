@@ -31,7 +31,7 @@ services:
     volumes:
       - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server
       - ${MEDIA}:/media
-      - ${STORAGE}/tmp:/tmp
+      - ${STORAGE}/torrents:/downloads
     restart: unless-stopped
     network_mode: "host" # comment if you are using Mac or Windows
 
