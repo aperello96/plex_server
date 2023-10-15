@@ -14,7 +14,8 @@ services:
       - 139:139
       - 445:445
     volumes:
-      - ${MEDIA}:/media
+      - ${MOVIES}:/movies
+      - ${TV}:/tv
       - ${STORAGE}/torrents:/downloads
 
   plex:
@@ -30,7 +31,8 @@ services:
       - TZ=Europe/Madrid
     volumes:
       - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server
-      - ${MEDIA}:/media
+      - ${TV}:/tv
+      - ${MOVIES}:/movies
       - ${STORAGE}/torrents:/downloads
     restart: unless-stopped
     network_mode: "host" # comment if you are using Mac or Windows
@@ -58,7 +60,7 @@ services:
       - TZ=Europe/Madrid
     volumes:
       - ./sonarr:/config
-      #- /path/to/tvseries:/tv #optional
+      - ${TV}:/series
       - ${STORAGE}/torrents:/downloads
     ports:
       - 8989:8989
@@ -78,4 +80,19 @@ services:
       - ${STORAGE}/torrents:/downloads
     ports:
       - 9117:9117
+    restart: unless-stopped
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - ./radarr:/config
+      - ${MOVIES}:/movies
+      - ${STORAGE}/torrents:/downloads
+    ports:
+      - 7878:7878
     restart: unless-stopped
