@@ -48,19 +48,34 @@ services:
     expose:
       - 9091
     restart: unless-stopped
-
-  flexget:
-    image: wiserain/flexget:3.5
-    volumes:
-      - ./flexget:/config
-      - ./flexget/custom-cont-init.d:/custom-cont-init.d
-      - ${STORAGE}/torrents:/downloads
-      - ${MEDIA}:/storage
-    ports:
-      - 5050:5050
+  
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
     environment:
-      - PUID=1001
-      - PGID=1001
-      - TORRENT_PLUGIN=transmission
-      - FG_WEBUI_PASSWD=p3l4d0_N3RD # you can change by your own
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - ./sonarr:/config
+      #- /path/to/tvseries:/tv #optional
+      - ${STORAGE}/torrents:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+  jackett:
+    image: lscr.io/linuxserver/jackett:latest
+    container_name: jackett
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - AUTO_UPDATE=true #optional
+      - RUN_OPTS= #optional
+    volumes:
+      - ./jackett:/config
+      - ${STORAGE}/torrents:/downloads
+    ports:
+      - 9117:9117
     restart: unless-stopped
