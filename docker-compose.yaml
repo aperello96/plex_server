@@ -60,7 +60,7 @@ services:
       - TZ=Europe/Madrid
     volumes:
       - ./sonarr:/config
-      - ${TV}:/series
+      - ${TV}:/tv
       - ${STORAGE}/torrents:/downloads
     ports:
       - 8989:8989
