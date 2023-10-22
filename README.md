@@ -25,4 +25,4 @@ Add to plex /tv and /movies folder
 - Jacket: http://ip_server:9117
 
 ## Tutorial
-[Full tutorial on my linkedin](https://www.linkedin.com/pulse/create-your-own-movie-server-like-netflix-free-plex-perell%25C3%25B3-covas/)
+[Full tutorial in my linkedin](https://www.linkedin.com/pulse/create-your-own-movie-server-like-netflix-free-plex-perell%25C3%25B3-covas/)
