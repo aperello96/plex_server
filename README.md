@@ -8,8 +8,10 @@ Docker compose with the next services:
 - Jacket
 
 ## Installation:
-Clone the repository, edit the .env file with your own configuration and apply with
-``` docker-compose up -d ```
+1. Clone the repository
+2. Execute create_enviroment.sh to create all the folders needed
+3. Edit the .env file with your own configuration if needed
+4. Execute docker-compose file with ``` docker-compose up -d ```
 
 ## Configuration:
 Configure radarr and Sonarr with the Jacket indexer and Transmission torrent downloader service.
