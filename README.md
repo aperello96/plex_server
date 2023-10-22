@@ -16,10 +16,10 @@ Configure radarr and Sonarr with the Jacket indexer and Transmission torrent dow
 Add to plex /tv and /movies folder
 
 ## URL's
-Plex: http://ip_server:32400/web/index.html
-Transmision: http://ip_server:9091 (usrname: admin, pswd: 123456)
-Sonarr: http://ip_server:8989
-Radarr: http://ip_server:7878
-Jacket: http://ip_server:9117
+- Plex: http://ip_server:32400/web/index.html
+- Transmision: http://ip_server:9091 (usrname: admin, pswd: 123456)
+- Sonarr: http://ip_server:8989
+- Radarr: http://ip_server:7878
+- Jacket: http://ip_server:9117
 
 ## Tutorial
